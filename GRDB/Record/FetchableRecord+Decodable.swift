@@ -512,7 +512,7 @@ extension DatabaseDateDecodingStrategy {
                 context: RowDecodingContext(row: row, key: .columnIndex(index)))
         } else {
             return try decodeIfPresent(
-                fromDatabaseValue: row[index],
+                fromDatabaseValue: row.databaseValue(atUncheckedIndex: index),
                 context: RowDecodingContext(row: row, key: .columnIndex(index)))
         }
     }
@@ -525,7 +525,7 @@ extension DatabaseDateDecodingStrategy {
                 context: RowDecodingContext(row: row, key: .columnIndex(index)))
         } else {
             return try decode(
-                fromDatabaseValue: row[index],
+                fromDatabaseValue: row.databaseValue(atUncheckedIndex: index),
                 context: RowDecodingContext(row: row, key: .columnIndex(index)))
         }
     }
